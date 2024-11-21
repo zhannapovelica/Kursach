@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="doctor.css" />
+  <link rel="stylesheet" href="./css/train-media-query.css" />
+  <link rel="stylesheet" href="scss/variables.scss" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Інформаційна система психологічної допомоги</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo" href="#">
+        <img class="logo-img" src="img-main/logo.png" href="index.html" />
+        <div id="burger" class="logo-phone">
+          <svg
+            fill="#000000"
+            height="40px"
+            width="40px"
+            version="1.1"
+            id="menu"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 487.3 487.3"
+            xml:space="preserve"
+          >
+            <g>
+              <g>
+                <path
+                  d="M487.2,69.7c0,12.9-10.5,23.4-23.4,23.4h-322c-12.9,0-23.4-10.5-23.4-23.4s10.5-23.4,23.4-23.4h322.1
+			C476.8,46.4,487.2,56.8,487.2,69.7z M463.9,162.3H141.8c-12.9,0-23.4,10.5-23.4,23.4s10.5,23.4,23.4,23.4h322.1
+			c12.9,0,23.4-10.5,23.4-23.4C487.2,172.8,476.8,162.3,463.9,162.3z M463.9,278.3H141.8c-12.9,0-23.4,10.5-23.4,23.4
+			s10.5,23.4,23.4,23.4h322.1c12.9,0,23.4-10.5,23.4-23.4C487.2,288.8,476.8,278.3,463.9,278.3z M463.9,394.3H141.8
+			c-12.9,0-23.4,10.5-23.4,23.4s10.5,23.4,23.4,23.4h322.1c12.9,0,23.4-10.5,23.4-23.4C487.2,404.8,476.8,394.3,463.9,394.3z
+			 M38.9,30.8C17.4,30.8,0,48.2,0,69.7s17.4,39,38.9,39s38.9-17.5,38.9-39S60.4,30.8,38.9,30.8z M38.9,146.8
+			C17.4,146.8,0,164.2,0,185.7s17.4,38.9,38.9,38.9s38.9-17.4,38.9-38.9S60.4,146.8,38.9,146.8z M38.9,262.8
+			C17.4,262.8,0,280.2,0,301.7s17.4,38.9,38.9,38.9s38.9-17.4,38.9-38.9S60.4,262.8,38.9,262.8z M38.9,378.7
+			C17.4,378.7,0,396.1,0,417.6s17.4,38.9,38.9,38.9s38.9-17.4,38.9-38.9C77.8,396.2,60.4,378.7,38.9,378.7z"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <?xml version="1.0" encoding="iso-8859-1"?>
+        <a class="logo-text" href="index.html">Requiem</a>
+      </div>
+      <div class="navigation-menu" id="showMenu">
+        <div class="dropdown consultation">
+          <button
+            class="btn btn-secondary dropdown-toggle cons-text"
+            id="consultation"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Консультація
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item doctor" href="doctor.html"
+                >З лікарем/психологом</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item bot-help" href="help-bot.html"
+                >Бот невідкладної допомоги</a
+              >
+            </li>
+          </ul>
+        </div>
+        <a class="programs" href="index.html">Програми</a>
+        <a class="about-us" href="index.html">Про нас</a>
+        <a class="info-about-benefits" href="index.html"
+          >Інформація про пільги</a
+        >
+        <p></p>
+        <a class="main-questions" href="index.html">Нагальні питання</a>
+        <a class="cabinet" id="cabinet" href="profile.html">Кабінет</a>
+      </div>
+    </header>
+    <div class="test-section1">
+      <img
+        src="img-doctor/section1.png"
+        style="width: 435px; height: 238px; margin-top: 100px"
+      />
+      <a class="test-section1-text1"
+        >Давайте знайдемо вам найкращого терапевта</a
+      >
+      <div class="test-section1-button">
+        <a class="add" id="start">ПОЧАТИ (5 хв.)</a>
+      </div>
+      <div class="test-section1-block">
+        <div class="test-section1-container">
+          Ми запитаємо про ваші очікування від терапевта і терапії.
+        </div>
+        <div class="test-section1-container">
+          Ми хочемо познайомитися з вами ближче, щоби ми могли порекомендувати
+          вам найкращого терапевта.
+        </div>
+        <div class="test-section1-container">
+          Будь-яка інформація, яку ви нам надаєте, захищена, ми не
+          розголошуватимемо її.
+        </div>
+      </div>
+    </div>
+    <div class="test-question" id="whatShowed">
+        <form id="test-form">
+          <div class="question">
+            <label for="q1">Який тип сесії вас цікавить?</label>
+            <select id="q1" name="q1">
+                <option value="0">Звичайна (для військовослужбовців)</option>
+                <option value="0">Для ветеранів</option>
+                <option value="0">Родич військовослужбовця</option>
+            </select>
+        </div>
+          <div class="question">
+              <label for="q2">1. Чи часто ви відчуваєте напруженість або тривогу?</label>
+              <select id="q2" name="q2">
+                  <option value="1">Рідко</option>
+                  <option value="2">Іноді</option>
+                  <option value="3">Часто</option>
+                  <option value="4">Дуже часто</option>
+              </select>
+          </div>
+          <div class="question">
+              <label for="q3">2. Чи маєте ви труднощі зі сном?</label>
+              <select id="q3" name="q3">
+                  <option value="1">Ні</option>
+                  <option value="2">Іноді</option>
+                  <option value="3">Часто</option>
+                  <option value="4">Постійно</option>
+              </select>
+          </div>
+          <div class="question">
+              <label for="q4">3. Чи відчуваєте ви емоційне виснаження?</label>
+              <select id="q4" name="q4">
+                  <option value="1">Ні</option>
+                  <option value="2">Іноді</option>
+                  <option value="3">Часто</option>
+                  <option value="4">Постійно</option>
+              </select>
+          </div>
+          <div class="question">
+            <label for="q5">4. Чи відчуваєте ви радість або задоволення від життя?</label>
+            <select id="q5" name="q5">
+                <option value="1">Так</option>
+                <option value="2">Не дуже</option>
+                <option value="3">Ні</option>
+                <option value="4">Іноді думаю про самогубство</option>
+            </select>
+        </div>
+        <div class="question">
+          <label for="q6">5. Чи були ви свідком або учасником подій, які викликають сильні емоційні переживання?</label>
+          <select id="q6" name="q6">
+              <option value="1">Ні</option>
+              <option value="4">Так</option>
+          </select>
+      </div>
+      <div class="question">
+        <label for="q7">6. Які слова у вас асоціюються зі своїм життям?</label>
+        <select id="q7" name="q7">
+          <option value="4">Смерть</option>
+          <option value="2">Буденність</option>
+          <option value="3">Занепокоєння</option>
+          <option value="1">Радість</option>
+        </select>
+    </div>
+    <div class="question">
+      <label for="q8">7. Як би ви оцінили свій настрій протягом останнього тижня?</label>
+      <select id="q8" name="q8">
+        <option value="2">Нейтральний</option>
+        <option value="1">Переважно позитивний</option>
+        <option value="4">Негативний</option>
+      </select>
+  </div>
+  <div class="question">
+    <label for="q9">8. Як ви реагуєте на стресові ситуації?</label>
+    <select id="q9" name="q9">
+      <option value="1">Нейтральний</option>
+      <option value="3">Добре</option>
+      <option value="4">Агресивно</option>
+    </select>
+</div>
+<div class="question">
+  <label for="q10">9. Чи маєте ви повторювані думки, які вас турбують?</label>
+  <select id="q10" name="q10">
+    <option value="4">Постійно про них думаю</option>
+    <option value="3">Часто буває</option>
+    <option value="1">Ніколи не буває</option>
+    <option value="2">Іноді</option>
+  </select>
+</div>
+<div class="question">
+  <label for="q11">10. Чи є у вас підтримка з боку друзів, родини або колег по службі?</label>
+  <select id="q11" name="q11">
+    <option value="4">Ні</option>
+    <option value="3">Дуже мало знайомих</option>
+    <option value="1">Є багато друзів та родичів</option>
+    <option value="2">Є друзі</option>
+  </select>
+</div>
+          <div class="button-submit" id="submit-btn"><a class="more">Отримати результат</a></div>
+      </form>
+<div class="test-question" id="whatShowed">
+  <img
+  src="img-train-test/tech-choco.png"
+  style="width: 660px; height: 560px; align-self: center; margin-left: 400px;"
+/>
+<div class="sorry-text" style="margin-left: 450px;">Вибачте будь ласка, сайт ще в розробці, працюємо над удосконаленням!</div>
+</div>
+    </div>
+    <footer>
+      <div class="section14-block-menu">
+        <div class="section14-block1">
+          <div class="footer-logo">
+            <img
+              class="logo-img"
+              src="img-main/logo.png"
+              href="index.html"
+              style="width: 60px; height: 60px"
+            />
+            <a class="footer-text">Зроблено з любов’ю до України 🇺🇦</a>
+          </div>
+        </div>
+        <div class="section14-block2">
+          <div class="navigation-menu-footer">
+            <a class="programs" href="index.html">Програми</a>
+            <a class="about-us" href="index.html">Про нас</a>
+            <a class="info-about-benefits" href="index.html"
+              >Інформація про пільги</a
+            >
+            <a class="main-questions" href="index.html">Нагальні питання</a>
+            <a class="cabinet" href="profile.html">Кабінет</a>
+          </div>
+        </div>
+        <div class="section14-block3">
+          <div class="follow-us">Слідкуй за нами</div>
+          <div class="social-medias">
+            <svg
+              onclick="window.location.href= 'https://www.instagram.com/'"
+              xmlns="http://www.w3.org/2000/svg"
+              href=""
+              width="21"
+              height="21"
+              fill="currentColor"
+              class="bi bi-instagram"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+              />
+            </svg>
+
+            <svg
+              onclick="window.location.href= 'https://ro-ro.facebook.com/login/?next=https%3A%2F%2Fro-ro.facebook.com%2F'"
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              fill="currentColor"
+              class="bi bi-facebook"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+              />
+            </svg>
+
+            <svg
+              onclick="window.location.href='https://www.youtube.com/'"
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              fill="currentColor"
+              class="bi bi-youtube"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="section14-block4">
+          <div class="section14-block4-img">
+            <img
+              src="img-main/section14-img.png"
+              href="index.html"
+              style="width: 120px; height: 130px"
+            />
+          </div>
+          <!-- <div class="section14-text-block-button">
+            <a class="morer"  href="index.html">ВИЙТИ З АКАУНТУ →</a>
+          </div> -->
+        </div>
+      </div>
+    </footer>
+    <div class="section14-block-footer">
+      <div class="footer-under1">© Створено під керівництвом xie</div>
+      <div class="footer-under2">
+        2024 © Платформа "Requiem". Всі права захищено.
+      </div>
+    </div>
+    <script src="./train.js"></script>
+    <script src="./burger.js"></script>
+  </body>
+</html>

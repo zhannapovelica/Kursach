@@ -1,0 +1,115 @@
+@media (max-width: 430px) {
+  header {
+    display: flex;
+    height: 200px;
+  }
+  .logo-img {
+    margin-left: 30px;
+    margin-top: 20px;
+    width: 80px;
+    height: 80px;
+  }
+  .logo-text {
+    display: none;
+  }
+  .logo-phone {
+    display: flex;
+    width: 650;
+    height: 650px;
+    background-image: url(../img-main/logo.png);
+    margin-left: 190px;
+    margin-top: 40px;
+  }
+  .navigation-menu {
+    display: none;
+    flex-direction: column;
+  }
+  .empty-block {
+    display: none;
+  }
+  .test-section1-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .test-section1-button {
+    width: 194px;
+    height: 81px;
+    display: flex;
+    justify-content: center;
+    border-radius: 13px;
+  }
+  footer {
+    width: 90%;
+    flex-direction: column;
+    height: 500px;
+    margin-top: 300px;
+  }
+  .navigation-menu-footer {
+    margin:0;
+    text-align: center;
+  }
+  .section14-block-menu {
+    flex-direction: column;
+  }
+  .footer-text {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  .section9 {
+    display: none;
+  }
+  .section14-block-menu {
+    width: 99%;
+    height:250px;
+  }
+  .section14-block1 {
+    width: 90%;
+  }
+  .section14-block2 {
+    margin-top: 20px;
+    margin-left: 90px;
+  }
+  .follow-us, .social-medias {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 70%;
+  }
+  .section14-block3 {
+    width: 70%;
+  }
+  .section14-block4-img {
+    margin: 0%;
+    height: 100px;
+    margin-top: 100px;
+    margin-right: 400px;
+  }
+  .section14-block-footer {
+   margin: 0%;
+   margin-top: 250px;
+  }
+  .section14-text-block-button {
+    margin-top: 60px;
+  }
+  .section14-block4 {
+    margin: 20px;
+  }
+  .test-question {
+   margin: 0;
+   width: 99%;
+    height: 1000px;
+    margin-top: 350px;
+  }
+  .question {
+    margin-top: 40px;
+  }
+  .button-submit {
+    width: 194px;
+    height: 61px;
+    background-color: #ec4111;
+    display: flex;
+    justify-content: center;
+    border-radius: 13px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+}
