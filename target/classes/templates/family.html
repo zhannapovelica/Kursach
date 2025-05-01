@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{main.css}"/>
+<link rel="stylesheet" th:href="@{military.css}"/>
+<link rel="stylesheet" th:href="@{css/main-media-query.css}"/>
+<link rel="stylesheet" th:href="@{scss/variables.scss}"/>
+<link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Інформаційна система психологічної допомоги</title>
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<div class="empty-block"></div>
+<div class="military-section1">
+    <div class="family-section1-text1">
+        Індивідуальна реабілітація для членів родин
+    </div>
+    <div class="military-section1-text2">
+        Процедура реабілітації для членів родини спрямована на відновлення
+        психологічної рівноваги, стабілізацію емоційного стану та підтримку
+        сімейної злагоди.
+    </div>
+    <img
+            class="military-img1-family"
+            th:src="@{img-family/section1-img.png}"
+    />
+</div>
+<div class="military-section2">
+    <div class="military-section2-img-block">
+        <img
+                class="military-section2-img-block-family"
+                th:src="@{img-family/section2-img.png}"
+        />
+    </div>
+    <div class="military-section2-text-block">
+        <div class="military-section2-text1">
+            ЧЛЕНИ РОДИН ВІЙСЬКОВОСЛУЖБОВЦІВ
+        </div>
+        <div class="military-section2-text2">
+            Шановні члени родин військовослужбовців!
+        </div>
+        <div class="military-section2-text3">
+            Ваша підтримка та любов є надзвичайно важливими для ваших близьких,
+            які захищають мир і спокій нашої країни. Ми розуміємо, що родинам
+            військовослужбовців також необхідна психологічна підтримка, щоб
+            впоратися з тривогами та випробуваннями, пов'язаними з військовою
+            службою рідних. Запрошуємо вас приєднатися до психологічного курсу,
+            спеціально розробленого для членів сімей військових. Під час курсу ви
+            отримаєте професійну підтримку, навчитеся методам зниження тривожності
+            та стресу, а також зможете поділитися своїм досвідом з іншими
+            родинами, які розуміють ваші переживання. Індивідуальні та групові
+            консультації допоможуть вам знайти внутрішній спокій та краще
+            підтримати своїх близьких.
+        </div>
+    </div>
+</div>
+<div class="military-section3">
+    <div class="military-section3-block">
+        <div class="military-section3-img">
+            <img
+                    th:src="@{img-family/section3-img1.png}"
+                    style="width: 50px; height: 50px"
+            />
+        </div>
+        <div class="text-block">
+            <div class="text1">Зниження рівня тривоги за близьких</div>
+            <div class="text2">
+                Ви навчитеся знижувати тривожність та турботу за близьких під час їх
+                служби.
+            </div>
+        </div>
+    </div>
+    <div class="military-section3-block">
+        <div class="military-section3-img">
+            <img
+                    th:src="@{img-family/section3-img2.png}"
+                    style="width: 50px; height: 50px"
+            />
+        </div>
+        <div class="text-block">
+            <div class="text1">Психологічна стійкість</div>
+            <div class="text2">
+                Курс допоможе розвинути емоційну стійкість, необхідну для підтримки
+                військового у сім’ї.
+            </div>
+        </div>
+    </div>
+    <div class="military-section3-block">
+        <div class="military-section3-img">
+            <img
+                    th:src="@{img-family/section3-img3.png}"
+                    style="width: 50px; height: 50px"
+            />
+        </div>
+        <div class="text-block">
+            <div class="text1">Покращення сімейних стосунків</div>
+            <div class="text2">
+                Ви отримаєте знання і навички для кращого спілкування і підтримки
+                ваших близьких.
+            </div>
+        </div>
+    </div>
+    <div class="military-section3-block">
+        <div class="military-section3-img">
+            <img
+                    th:src="@{img-family/section3-img4.png}"
+                    style="width: 60px; height: 50px"
+            />
+        </div>
+        <div class="text-block">
+            <div class="text1">
+                Можливість поділитися досвідом з іншими родинами
+            </div>
+            <div class="text2">
+                Можливість поділитися досвідом з іншими родинами Це допоможе знайти
+                підтримку та відчути себе зрозумілими.
+            </div>
+        </div>
+    </div>
+    <div class="military-section3-block">
+        <div class="military-section3-img">
+            <img
+                    th:src="@{img-family/section3-img5.png}"
+                    style="width: 60px; height: 50px"
+            />
+        </div>
+        <div class="text-block">
+            <div class="text1">Вміння знижувати власний рівень стресу</div>
+            <div class="text2">
+                Практичні вправи допоможуть краще справлятися з власними емоціями і
+                напругою.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="family-section4">
+    <div class="family-section4-text1">ФОТОЗВІТ</div>
+    <div class="family-section4-text2">
+        Наша галерея: як виглядають реабілітації?
+    </div>
+    <div class="family-container">
+        <img class="family-container1"
+             th:src="@{img-family/section4-img1.png}"
+        />
+        <img class="family-container1"
+             th:src="@{img-family/section4-img2.png}"
+        />
+    </div>
+    <div class="family-container">
+        <img class="family-container1"
+             th:src="@{img-family/section4-img3.png}"
+        />
+        <img class="family-container1"
+             th:src="@{img-family/section4-img4.png}"
+        />
+    </div>
+</div>
+<div th:replace="footer :: footer"></div>
+<div class="section14-block-footer">
+    <div class="footer-under1">© Створено під керівництвом xie</div>
+    <div class="footer-under2">
+        2024 © Платформа "Requiem". Всі права захищено.
+    </div>
+</div>
+<div id="bo">
+    <iframe id="fr" th:src="@{/chatbot}"></iframe>
+</div>
+<script th:src="@{bot-size-script.js}"></script>
+<script th:src="@{bot-chat-size.js}"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 const start = document.getElementById("start");
 const whatShowed = document.getElementById("whatShowed");
+const whatShowed1 = document.getElementById("whatShowed1");
 start.addEventListener("click", showTest);
 function showTest() {
   whatShowed.style.display = "block";

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загальні налаштування</title>
+</head>
+<body>
+<div class="header">Загальні налаштування</div>
+
+<div class="card">
+    <h3>Налаштування мови інтерфейсу</h3>
+    <div class="form-container">
+        <label for="language">Оберіть мову:</label>
+        <select id="language">
+            <option value="ukrainian">Українська</option>
+            <option value="english">English</option>
+        </select>
+        <button onclick="changeLanguage()">Зберегти</button>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Зміна пароля</h3>
+    <div class="form-container">
+        <label for="currentPassword">Поточний пароль:</label>
+        <input type="password" id="currentPassword" placeholder="Введіть поточний пароль" />
+
+        <label for="newPassword">Новий пароль:</label>
+        <input type="password" id="newPassword" placeholder="Введіть новий пароль" />
+
+        <label for="confirmNewPassword">Підтвердження пароля:</label>
+        <input type="password" id="confirmNewPassword" placeholder="Підтвердіть новий пароль" />
+
+        <button onclick="changePassword()">Змінити пароль</button>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Налаштування безпеки</h3>
+    <div class="form-container">
+        <label for="twoFactorAuth">Двохфакторна автентифікація:</label>
+        <select id="twoFactorAuth">
+            <option value="enabled">Увімкнути</option>
+            <option value="disabled">Вимкнути</option>
+        </select>
+        <button onclick="updateSecuritySettings()">Зберегти налаштування безпеки</button>
+    </div>
+</div>
+
+<div id="message" style="text-align: center; margin-top: 20px; font-size: 18px;"></div>
+
+<script>
+    function changeLanguage() {
+        const language = document.getElementById('language').value;
+        document.getElementById('message').textContent = `Мову інтерфейсу змінено на: ${language === 'ukrainian' ? 'Українська' : language === 'english' ? 'English' : 'Русский'}`;
+    }
+
+    function changePassword() {
+        const currentPassword = document.getElementById('currentPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+        const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+        if (newPassword !== confirmNewPassword) {
+            alert('Новий пароль і підтвердження пароля не збігаються!');
+            return;
+        }
+
+        if (currentPassword && newPassword) {
+            document.getElementById('message').textContent = 'Пароль успішно змінено!';
+        } else {
+            alert('Будь ласка, заповніть всі поля.');
+        }
+    }
+
+    function updateSecuritySettings() {
+        const twoFactorAuth = document.getElementById('twoFactorAuth').value;
+
+        if (twoFactorAuth) {
+            document.getElementById('message').textContent = `Налаштування безпеки змінено: Двохфакторна автентифікація ${twoFactorAuth === 'enabled' ? 'увімкнена' : 'вимкнена'}`;
+        }
+    }
+</script>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 36px;
+        color: #ff6600;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .form-container input, .form-container select, .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .form-container button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .form-container button:hover {
+        background-color: #45a049;
+    }
+
+    .form-container label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>

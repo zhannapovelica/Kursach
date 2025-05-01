@@ -1,11 +1,32 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+#bo {
+  position: fixed;
+  bottom: 1px;
+  right: 2px;
+  z-index: 9999;
+}
+iframe {
+  width: 90px;
+  height: 60px;
+}
+.my{
+  border: 0px solid white;
+  background-color: white;
+}
+.my1{
+  border: 0px solid white;
+  background-color: white;
+  padding-top: 10px;
 }
 header {
   width: 100%;
   background-color: #ffffff;
   display: flex;
-  height: 70px;
+  height: 20px;
 }
 .logo-phone {
   display: none;
@@ -78,7 +99,7 @@ header {
 }
 .section1-text-block {
   width: 48%;
-  height: 600px;
+  height: 500px;
   background-color: #ffffff;
   margin-left: 80px;
   margin-top: 40px;
@@ -142,7 +163,7 @@ header {
 }
 .section2 {
   width: 100%;
-  height: 800px;
+  height: 850px;
   background-color: #ffffff;
   display: flex;
   justify-content: space-around;
@@ -181,7 +202,7 @@ header {
   margin-top: 20px;
   font-size: 19px;
   text-align: justify;
-  width: 300px;
+  width: 320px;
 }
 .section2-block1-text4,
 .section2-block2-text4,
@@ -206,7 +227,7 @@ header {
 }
 .section3 {
   width: 100%;
-  height: 750px;
+  height: 850px;
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -240,6 +261,7 @@ a {
   justify-content: space-around;
   margin-left: 50px;
   display: flex;
+  margin-bottom: 100px;
 }
 .section4-text-button {
   width: 204px;
@@ -281,6 +303,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 100px;
 }
 .section5-block1 {
   width: 300px;
@@ -288,6 +311,10 @@ a {
 .section5-block3 {
   width: 400px;
   text-align: justify;
+}
+.video-recover {
+  width: 419px;
+  height: 270px;
 }
 .section5-block3 {
   margin-left: 30px;
@@ -318,7 +345,7 @@ a {
 }
 .section6 {
   width: 100%;
-  height: 840px;
+  height: 900px;
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -328,7 +355,6 @@ a {
 .section6-block3 {
   align-items: center;
 }
-.section6-block3-text1,
 .section6-block2-text1,
 .section6-block1-text1 {
   letter-spacing: 1px;
@@ -336,8 +362,17 @@ a {
   margin-top: 30px;
   font-size: 26px;
   font-weight: 600;
-  width: 350px;
-  margin-left: 160px;
+  width: 320px;
+  margin-left: 100px;
+}
+.section6-block3-text1 {
+  letter-spacing: 1px;
+  color: #000;
+  margin-top: 30px;
+  font-size: 26px;
+  font-weight: 600;
+  width: 320px;
+  margin-left: 140px;
 }
 .section6-block1-text2,
 .section6-block1-text3,
@@ -348,7 +383,7 @@ a {
 .section6-block3-text2,
 .section6-block3-text3,
 .section6-block3-text4 {
-  margin-left: 180px;
+  margin-left: 100px;
   color: #3e3e3e;
   margin-top: 20px;
   font-size: 16px;
@@ -364,7 +399,7 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 40px;
-  margin-left: 160px;
+  margin-left: 100px;
 }
 .more {
   margin-top: 20px;
@@ -386,7 +421,7 @@ a {
   height: 500px;
   background-color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 .section7-carousel-block {
   width: 40%;
@@ -467,6 +502,10 @@ a {
   margin-top: 10px;
   width: 550px;
 }
+.section8-form2 {
+  display: flex;
+  flex-direction: column;
+}
 .section8-form {
   display: flex;
   flex-direction: column;
@@ -508,7 +547,7 @@ a {
 }
 .section10-text1 {
   margin-top: 130px;
-  margin-left: 650px;
+  margin-left: 750px;
   color: #555;
   letter-spacing: 1px;
   font-family: "Arial", sans-serif;
@@ -516,7 +555,7 @@ a {
 }
 .section10-text2 {
   color: rgb(5, 5, 5);
-  margin-left: 250px;
+  margin-left: 350px;
   letter-spacing: 1px;
   font-weight: 550;
   font-size: 43px;
@@ -531,11 +570,10 @@ a {
   font-size: 16px;
   margin-top: 30px;
   font-style: italic;
-  text-align: justify;
   width: 600px;
   display: flex;
   text-align: center;
-  margin-left: 450px;
+  margin-left: 550px;
 }
 .section11 {
   width: 100%;
@@ -543,7 +581,7 @@ a {
 }
 .section11-text1 {
   margin-top: 130px;
-  margin-left: 680px;
+  margin-left: 780px;
   color: #555;
   letter-spacing: 1px;
   font-family: "Arial", sans-serif;
@@ -551,7 +589,7 @@ a {
 }
 .section11-text2 {
   color: #f60808;
-  margin-left: 280px;
+  margin-left: 380px;
   letter-spacing: 1px;
   font-weight: 550;
   font-size: 43px;

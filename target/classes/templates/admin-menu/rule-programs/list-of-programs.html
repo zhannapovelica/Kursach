@@ -1,0 +1,110 @@
+<!-- Сторінка: Список програм -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список програм</title>
+</head>
+<body>
+<div class="admin-title">Список програм</div>
+<div class="program-list">
+    <div class="program-card" th:each="course :${courses}">
+        <img th:src="@{${course.getId()} + '-image-course'}" alt="Image">
+        <div class="program-info">
+            <h3 th:text="'Назва програми: ' + ${course.getName()}"></h3>
+            <p th:each="doctor :${course.getDoctors()}">
+                <strong>Лікар:</strong><a th:text="${doctor.getFullName()}"></a>
+            </p>
+            <p><strong>Створено з метою:</strong> <a th:text="${course.getPurpose()}"></a></p>
+            <p><strong>Спрямовано на:</strong> <a th:text="${course.getDescription()}"></a></p>
+            <p><strong>Тривалість:</strong> <a th:text="${course.getDuration()}"></a></p>
+            <p><strong>Місткість:</strong> <a th:text="${course.getCapacity()}"></a></p>
+            <p><strong>Локації:</strong> <a th:text="${course.getLocation()}"></a></p>
+        </div>
+    </div>
+
+<!--    <div class="program-card">-->
+<!--        <img src="https://via.placeholder.com/180x120" alt="Програма 2">-->
+<!--        <div class="program-info">-->
+<!--            <h3>Назва програми: Психологічна підтримка</h3>-->
+<!--            <p><strong>Лікар:</strong> д-р Наталія Сидоренко</p>-->
+<!--            <p><strong>Створено з метою:</strong> надання підтримки людям у кризових ситуаціях</p>-->
+<!--            <p><strong>Спрямовано на:</strong> емоційне відновлення та стійкість</p>-->
+<!--            <p><strong>Тривалість:</strong> 8 тижнів</p>-->
+<!--            <p><strong>Місткість:</strong> до 15 учасників</p>-->
+<!--            <p><strong>Локації:</strong> Харків, Одеса</p>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .admin-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: #ff6600;
+        margin-bottom: 30px;
+        position: relative;
+        text-align: center;
+    }
+
+    .admin-title::before,
+    .admin-title::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background: #ff6600;
+        margin: 0 15px;
+        opacity: 0.6;
+    }
+
+    .program-list {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .program-card {
+        display: flex;
+        gap: 20px;
+        background-color: #fff1e6;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .program-card img {
+        width: 180px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .program-info {
+        flex: 1;
+    }
+
+    .program-info h3 {
+        color: #ff6600;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .program-info p {
+        margin: 4px 0;
+    }
+</style>

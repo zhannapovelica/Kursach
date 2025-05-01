@@ -1,0 +1,44 @@
+<div th:fragment="header">
+    <header>
+        <div class="logo" href="#">
+            <form class="my" action="/back" method="get">
+                <button class="my" type="submit">
+                    <img class="logo-img" th:src="@{img-main/logo.png}"/>
+                </button>
+            </form>
+
+            <?xml version="1.0" encoding="iso-8859-1"?>
+            <a class="logo-text" th:href="@{/}">Requiem</a>
+        </div>
+        <div class="navigation-menu" id="showMenu">
+            <div class="dropdown consultation">
+                <button
+                        class="btn btn-secondary dropdown-toggle cons-text"
+                        id="consultation"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                >
+                    Консультація
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item doctor" th:href="@{/doctor}">З лікарем/психологом</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item bot-help botik"
+                        >Бот невідкладної допомоги</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <a class="programs" th:href="@{/visit}">Програми</a>
+            <a class="about-us" th:href="@{/#section33}">Про нас</a>
+            <a class="info-about-benefits" th:href="@{/#section1010}">Інформація про пільги</a>
+            <p></p>
+            <a class="main-questions" th:href="@{/#section1212}">Нагальні питання</a>
+            <a class="cabinet" id="cabinet" th:href="@{/profile}">Кабінет</a>
+            <a class="cabinet" id="admin-menu" th:href="@{/menu}">Адмін меню</a>
+        </div>
+    </header>
+</div>

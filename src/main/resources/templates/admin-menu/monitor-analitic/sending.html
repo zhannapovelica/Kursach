@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розсилка</title>
+</head>
+<body>
+<div class="header">Розсилка повідомлень</div>
+
+<div class="card">
+    <h3>Створити нове повідомлення</h3>
+    <div class="form-container">
+        <label for="subject">Тема повідомлення:</label>
+        <input type="text" id="subject" placeholder="Введіть тему повідомлення" />
+
+        <label for="messageBody">Текст повідомлення:</label>
+        <textarea id="messageBody" placeholder="Введіть текст повідомлення" rows="6"></textarea>
+
+        <label for="recipient">Оберіть отримувача:</label>
+        <select id="recipient">
+            <option value="all">Усі користувачі</option>
+            <option value="military">Військовослужбовці</option>
+            <option value="family">Сім'ї військовослужбовців</option>
+        </select>
+
+        <button onclick="sendMessage()">Відправити повідомлення</button>
+    </div>
+</div>
+
+<div class="recipient-list">
+    <h3>Список отримувачів</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Ім'я</th>
+            <th>Тип користувача</th>
+            <th>Електронна пошта</th>
+        </tr>
+        </thead>
+        <tbody id="recipientList">
+        <!-- Список отримувачів буде динамічно додаватися сюди -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const users = [
+        { name: 'Іван Іванов', type: 'Військовослужбовець', email: 'ivan@example.com' },
+        { name: 'Марія Петрівна', type: 'Сім\'я військовослужбовця', email: 'maria@example.com' },
+        { name: 'Олександр Олександрович', type: 'Військовослужбовець', email: 'alexander@example.com' },
+        { name: 'Тетяна Вікторівна', type: 'Сім\'я військовослужбовця', email: 'tatyana@example.com' },
+    ];
+
+    function renderRecipientList() {
+        const recipientListTable = document.getElementById("recipientList");
+        recipientListTable.innerHTML = '';
+
+        users.forEach(user => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+          <td>${user.name}</td>
+          <td>${user.type}</td>
+          <td>${user.email}</td>
+        `;
+            recipientListTable.appendChild(row);
+        });
+    }
+
+    function sendMessage() {
+        const subject = document.getElementById('subject').value;
+        const messageBody = document.getElementById('messageBody').value;
+        const recipient = document.getElementById('recipient').value;
+
+        if (subject && messageBody && recipient) {
+            let selectedUsers;
+
+            if (recipient === 'all') {
+                selectedUsers = users;
+            } else if (recipient === 'military') {
+                selectedUsers = users.filter(user => user.type === 'Військовослужбовець');
+            } else if (recipient === 'family') {
+                selectedUsers = users.filter(user => user.type === 'Сім\'я військовослужбовця');
+            }
+
+            selectedUsers.forEach(user => {
+                alert(`Повідомлення на пошту ${user.email} успішно відправлено!`);
+                console.log(`Тема: ${subject}\nТекст повідомлення: ${messageBody}\nОтримувач: ${user.name} (${user.email})`);
+            });
+
+            alert('Повідомлення успішно відправлено обраним користувачам!');
+        } else {
+            alert('Будь ласка, заповніть всі поля для відправлення повідомлення.');
+        }
+    }
+
+    renderRecipientList();
+</script>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 36px;
+        color: #ff6600;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .form-container input, .form-container select, .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .form-container button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .form-container button:hover {
+        background-color: #45a049;
+    }
+
+    .recipient-list {
+        margin-top: 20px;
+    }
+
+    .recipient-list table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .recipient-list table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #ff6600;
+        color: white;
+    }
+</style>

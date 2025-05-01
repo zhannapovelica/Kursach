@@ -1,0 +1,69 @@
+.visit-doctor-section1 {
+    width: 100%;
+    height: 2200px;
+}
+.visit-doctor-text {
+    width: 100%;
+    height: 130px;
+    margin-left: 630px;
+}
+.visit-doctor-titul {
+     color: rgba(0, 0, 0, 0.92);
+     letter-spacing: 1px;
+     font-family: "Arial", sans-serif;
+     font-size: 33px;
+     margin-left: 50px;
+ }
+.sec1-block1-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 130px;
+    object-fit: cover;
+    margin-left: 30px;
+}
+.sec1-block1-img {
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px 0;
+}
+.visit-doctor-sec1-block1 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.sec1-block-text-name {
+    width: 100%;
+}
+.text-name-link {
+    text-decoration: none;
+    color: black;
+}
+.sec1-block-text {
+    width: 80%;
+    height: 500px;
+    margin-left: 50px;
+    text-align: justify;
+}
+
+.sec1-text-block-button {
+    margin-top: 20px;
+}
+
+.sec1-text-block-button,
+.sec1-text-block-button2,
+.sec1-text-block-button3 {
+    width: 300px;
+    height: 61px;
+    background-color: #7a3d2c;
+    display: flex;
+    justify-content: center;
+}
+.sec1-text-block-button2 {
+    margin-top: 0px;
+}
+.sec1-text-block-button3 {
+    margin-top: 48px;
+}

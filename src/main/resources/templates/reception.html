@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{reception.css}"/>
+<link rel="stylesheet" th:href="@{main.css}"/>
+<link rel="stylesheet" th:href="@{chat.css}"/>
+<link rel="stylesheet" th:href="@{css/main-media-query.css}"/>
+<link rel="stylesheet" th:href="@{scss/variables.scss}"/>
+<link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Інформаційна система психологічної допомоги</title>
+</head>
+<body>
+
+
+<div th:replace="header :: header"></div>
+
+<div class="empty-space">
+</div>
+
+<div class="appoint"> ЗАПИС</div>
+<div class="reception-form">
+<form class="rec-form-reg" th:action="@{/create-reception}" method="post">
+    <label>Оберана програма реабілітації: <a th:text="${course.getName()}"></a></label>
+    <input type="hidden" th:value="${course.getId()}" name="courseId">
+<!--    <select>-->
+<!--        <option value="" disabled selected>Курси</option>-->
+<!--        <option value="1">ПСИХОЛОГІЧНА СТІЙКІСТЬ ТА УПРАВЛІННЯ СТРЕСОМ ДЛЯ ВІЙСЬКОВОСЛУЖБОВЦІВ</option>-->
+<!--        <option value="2">ПРАКТИКА УСВІДОМЛЕНОСТІ ТА ЕМОЦІЙНОЇ РЕГУЛЯЦІЇ ДЛЯ ВІЙСЬКОВОСЛУЖБОВЦІВ</option>-->
+<!--        <option value="3">АДАПТАЦІЯ ДО ЦИВІЛЬНОГО ЖИТТЯ ТА ВІДНОВЛЕННЯ ПІСЛЯ СЛУЖБИ</option>-->
+<!--        <option value="4">ПІДТРИМКА ТА СТІЙКІСТЬ ДЛЯ РОДИН ВІЙСЬКОВИХ</option>-->
+<!--    </select> <p></p>-->
+    <label>ФІО: <a th:text="${user.getFullName()}"></a></label>
+    <input
+            type="hidden"
+            th:value="${user.getId()}"
+            class="form-control-name"
+            id="surname"
+            name="userId"/> <p></p>
+    <p></p>
+    <label>Введіть плановану дату та час візиту: </label><p></p>
+    <input type="datetime-local" id="datetime" name="datetime">
+    <p></p>
+    <label>Коротко опишіть свою проблему: </label>
+    <input
+            type="text"
+            class="form-control-name"
+            id="description"
+            name="description"
+    />
+    <p></p>
+    <label>Місця: </label><p></p>
+    <select name="selectedLocation">
+        <option value="1">Вдома (онлайн)</option>
+        <option th:each="location : ${locations}" th:text="${location}" th:value="location"></option>
+    </select>
+    <button type="submit" class="section8-text-button">
+        <span class="section8-text-button-text">ЗАПИСАТИСЯ →</span>
+    </button>
+</form>
+</div>
+
+
+
+<div th:replace="footer :: footer"></div>
+<div class="section14-block-footer">
+    <div class="footer-under1">© Створено під керівництвом xie</div>
+    <div class="footer-under2">
+        2024 © Платформа "Requiem". Всі права захищено.
+    </div>
+</div>
+
+<div id="bo">
+    <iframe id="fr" th:src="@{/chatbot}"></iframe>
+</div>
+<script th:src="@{bot-size-script.js}"></script>
+<script th:src="@{bot-chat-size.js}"></script>
+</body>
+</html>

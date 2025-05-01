@@ -1,0 +1,177 @@
+<!-- Сторінка: Запити на запис -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запити на запис</title>
+
+</head>
+<body>
+<div class="admin-title">Запити на запис</div>
+<div class="request-container">
+    <table>
+        <thead>
+        <tr>
+            <th>Ім'я</th>
+            <th>Програма</th>
+            <th>Лікар</th>
+            <th>Дата</th>
+            <th>Дія</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reception :${receptions}">
+            <td th:text="${reception.getUser().getFullName()}"></td>
+            <td th:text="${reception.getCourse().getName()}"></td>
+            <td>
+                <li th:each="doc: ${reception.getCourse().getDoctors()}"><a th:text="${doc.getFullName()}"></a></li>
+            </td>
+            <td th:text="${reception.getDate()}"></td>
+            <td>
+                <form th:action="@{/accept}" method="post">
+                    <input type="hidden" th:value="${reception.getId()}" name="receptionId">
+                    <button type="submit" class="action-btn approve">Підтвердити</button>
+                </form>
+                <button id="decline" class="action-btn reject">Відхилити</button>
+                <div id="declineModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeModal" class="close">&times;</span>
+                        <form th:action="@{/decline}" method="post">
+                            <input type="hidden" th:value="${reception.getId()}" name="receptionId">
+                            <div class="form-group">
+                                <label for="reason">Причина:</label>
+                                <input type="text" id="reason" name="reason" required>
+                            </div>
+                            <button type="submit">Відправити</button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script th:src="@{decline.js}"></script>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .admin-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: #ff6600;
+        margin-bottom: 30px;
+        position: relative;
+        text-align: center;
+    }
+
+    .admin-title::before,
+    .admin-title::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background: #ff6600;
+        margin: 0 15px;
+        opacity: 0.6;
+    }
+
+    .request-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff1e6;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ffd3b6;
+        text-align: left;
+    }
+
+    th {
+        background-color: #ff6600;
+        color: white;
+    }
+
+    .action-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .approve {
+        background-color: #28a745;
+    }
+
+    .reject {
+        background-color: #dc3545;
+    }
+
+    .approve:hover {
+        background-color: #218838;
+    }
+
+    .reject:hover {
+        background-color: #c82333;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        width: 300px;
+        border-radius: 5px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 5px;
+    }
+
+    button {
+        padding: 5px 10px;
+    }
+</style>

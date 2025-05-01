@@ -8,6 +8,17 @@
   align-items: center;
   height: 700px;
 }
+.family-section1-text1 {
+  color: rgb(8, 8, 8);
+  letter-spacing: 1px;
+  font-weight: 550;
+  font-size: 43px;
+  margin-top: 20px;
+  font-family: "Times New Roman", Times, serif;
+  align-self: center;
+  border-bottom: 1px solid red;
+  width: 920px;
+}
 .military-section1-text1 {
   color: rgb(8, 8, 8);
   letter-spacing: 1px;
@@ -17,7 +28,7 @@
   font-family: "Times New Roman", Times, serif;
   align-self: center;
   border-bottom: 1px solid red;
-  width: 43%;
+  width: 650px;
 }
 .military-section1-text2 {
   width: 60%;
@@ -205,9 +216,6 @@
 }
 .buttons:hover {
   color: aliceblue;
-}
-.military-section1-text1 {
-  width: 930px;
 }
 .family-section4 {
   width: 100%;

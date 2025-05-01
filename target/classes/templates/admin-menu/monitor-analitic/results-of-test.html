@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результати тестів</title>
+</head>
+<body>
+<div class="header">Результати тестів</div>
+
+<div class="card">
+    <h3>Список результатів тестів</h3>
+    <p>Адміністратор може переглядати та видаляти результати тестів для кожного користувача.</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID користувача</th>
+            <th>Ім'я користувача</th>
+            <th>Тип тесту</th>
+            <th>Результат</th>
+            <th>Дата проходження</th>
+            <th>Дії</th>
+        </tr>
+        </thead>
+        <tbody id="testResults">
+        </tbody>
+    </table>
+</div>
+
+<div class="form-container">
+    <h3>Додати новий результат тесту</h3>
+    <input type="text" id="userId" placeholder="ID користувача" />
+    <input type="text" id="userName" placeholder="Ім'я користувача" />
+    <input type="text" id="testType" placeholder="Тип тесту" />
+    <input type="text" id="testResult" placeholder="Результат тесту" />
+    <input type="date" id="testDate" placeholder="Дата проходження тесту" />
+    <button onclick="addTestResult()">Додати результат</button>
+</div>
+
+<div class="reminder-card">
+    <h3>Нагадування про візит на курс</h3>
+    <input type="text" id="patientName" placeholder="ПІБ" />
+    <input type="text" id="courseName" placeholder="Назва курсу" />
+    <input type="date" id="visitDate" placeholder="Дата візиту" />
+    <button onclick="setReminder()">Встановити нагадування</button>
+</div>
+
+<div class="message-card">
+    <h3>Відправити повідомлення про відвідування курсу</h3>
+    <input type="email" id="recipientEmail" placeholder="Електронна пошта отримувача" />
+    <textarea id="messageBody" placeholder="Текст повідомлення" rows="4"></textarea>
+    <button onclick="sendEmail()">Відправити повідомлення</button>
+</div>
+
+<script>
+    let testResults = [
+        { userId: 1, userName: "Іван Іванов", testType: "Психологічний", result: "Позитивний", testDate: "2025-04-15" },
+        { userId: 2, userName: "Марія Петрівна", testType: "Медичний", result: "Негативний", testDate: "2025-04-16" },
+    ];
+
+    function renderTestResults() {
+        const testResultsTable = document.getElementById("testResults");
+        testResultsTable.innerHTML = '';
+
+        testResults.forEach(result => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+          <td>${result.userId}</td>
+          <td>${result.userName}</td>
+          <td>${result.testType}</td>
+          <td>${result.result}</td>
+          <td>${result.testDate}</td>
+          <td>
+            <button class="btn-view" onclick="viewTestResult(${result.userId})">Переглянути</button>
+            <button class="btn-delete" onclick="deleteTestResult(${result.userId})">Видалити</button>
+          </td>
+        `;
+            testResultsTable.appendChild(row);
+        });
+    }
+
+    function viewTestResult(userId) {
+        const result = testResults.find(r => r.userId === userId);
+        alert(`Результат тесту для ${result.userName}:\nТип: ${result.testType}\nРезультат: ${result.result}\nДата: ${result.testDate}`);
+    }
+
+    function addTestResult() {
+        const userId = document.getElementById('userId').value;
+        const userName = document.getElementById('userName').value;
+        const testType = document.getElementById('testType').value;
+        const testResult = document.getElementById('testResult').value;
+        const testDate = document.getElementById('testDate').value;
+
+        if (userId && userName && testType && testResult && testDate) {
+            const newTestResult = { userId, userName, testType, result: testResult, testDate };
+            testResults.push(newTestResult);
+            renderTestResults();
+            alert('Результат тесту успішно додано!');
+        } else {
+            alert('Будь ласка, заповніть всі поля.');
+        }
+    }
+
+    function deleteTestResult(userId) {
+        const resultIndex = testResults.findIndex(r => r.userId === userId);
+        if (resultIndex !== -1) {
+            testResults.splice(resultIndex, 1);
+            renderTestResults();
+            alert('Результат тесту видалено!');
+        } else {
+            alert('Результат тесту не знайдено!');
+        }
+    }
+
+    function setReminder() {
+        const courseName = document.getElementById('courseName').value;
+        const visitDate = document.getElementById('visitDate').value;
+
+        if (courseName && visitDate) {
+            alert(`Нагадування про візит на курс "${courseName}" встановлено на ${visitDate}.`);
+        } else {
+            alert('Будь ласка, заповніть всі поля для нагадування.');
+        }
+    }
+
+    function sendEmail() {
+        const recipientEmail = document.getElementById('recipientEmail').value;
+        const messageBody = document.getElementById('messageBody').value;
+
+        if (recipientEmail && messageBody) {
+            alert(`Повідомлення на пошту ${recipientEmail} успішно відправлено:\n${messageBody}`);
+        } else {
+            alert('Будь ласка, заповніть всі поля для відправлення повідомлення.');
+        }
+    }
+
+    renderTestResults();
+</script>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 36px;
+        color: #ff6600;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .card p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #ff6600;
+        color: white;
+    }
+
+    .btn-view {
+        background-color: #4CAF50;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-view:hover {
+        background-color: #45a049;
+    }
+
+    .btn-delete {
+        background-color: #f44336;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-delete:hover {
+        background-color: #e53935;
+    }
+
+    .form-container {
+        margin-top: 20px;
+    }
+
+    .form-container input {
+        padding: 8px;
+        margin-right: 10px;
+    }
+
+    .form-container button {
+        padding: 8px 16px;
+        background-color: #ff6600;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .form-container button:hover {
+        background-color: #e65c00;
+    }
+
+    .reminder-card, .message-card {
+        margin-top: 40px;
+    }
+
+    .reminder-card input, .reminder-card select, .message-card input, .message-card textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .reminder-card button, .message-card button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .reminder-card button:hover, .message-card button:hover {
+        background-color: #45a049;
+    }
+</style>

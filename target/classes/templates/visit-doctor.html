@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{visit-doctor.css}"/>
+<link rel="stylesheet" th:href="@{main.css}"/>
+<link rel="stylesheet" th:href="@{chat.css}"/>
+<link rel="stylesheet" th:href="@{css/main-media-query.css}"/>
+<link rel="stylesheet" th:href="@{scss/variables.scss}"/>
+<link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Інформаційна система психологічної допомоги</title>
+</head>
+<body>
+
+
+<div th:replace="header :: header"></div>
+
+<div class="empty-block">
+</div>
+<div class="visit-doctor-text">
+    <div class="visit-doctor-titul">КУРСИ РЕАБІЛІТАЦІЇ</div>
+</div>
+<div class="visit-doctor-section1">
+
+    <div class="program-card" th:each="course :${courses}">
+        <img th:src="@{${course.getId()} + '-image-course'}" alt="Image">
+        <div class="program-info">
+            <h3 th:text="'Назва програми: ' + ${course.getName()}"></h3>
+            <p th:each="doctor :${course.getDoctors()}">
+                <strong>Лікар:</strong><a th:text="${doctor.getFullName()}"></a>
+            </p>
+            <p><strong>Створено з метою:</strong> <a th:text="${course.getPurpose()}"></a></p>
+            <p><strong>Спрямовано на:</strong> <a th:text="${course.getDescription()}"></a></p>
+            <p><strong>Тривалість:</strong> <a th:text="${course.getDuration()}"></a></p>
+            <p><strong>Місткість:</strong> <a th:text="${course.getCapacity()}"></a></p>
+            <p><strong>Локації:</strong> <a th:text="${course.getLocation()}"></a></p>
+            <form class="sec1-text-block-button2" th:action="@{/reception-{id}(id=${course.getId()})}">
+                <button class="sec1-text-block-button2" type="submit">
+                    <a class="more" >ЗАРЕЄСТРУВАТИСЬ →</a>
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <!--    <div class="sec1-block1-img">-->
+    <!--        <img class="sec1-block1-image" th:src="@{img-visits/sec1-block2.png}">-->
+    <!--        <div class="sec1-block-text">-->
+    <!--            <div class="sec1-block-text-name"><b>-->
+    <!--                <a class="text-name-link" href="reception.html"> ПРАКТИКА УСВІДОМЛЕНОСТІ ТА ЕМОЦІЙНОЇ РЕГУЛЯЦІЇ ДЛЯ ВІЙСЬКОВОСЛУЖБОВЦІВ </a>-->
+    <!--            </b></div><p></p>-->
+    <!--            <div class="sec1-block-text-doctor"><b>-->
+    <!--                <a class="text-name-link" href="doctor-pages.html">СЕМЧУК Віталій Олегович</a>-->
+    <!--            </b></div><p></p>-->
+    <!--            <div class="sec1-block-text-description">Розроблено для допомоги діючим військовослужбовцям у розвитку розуміння-->
+    <!--                своїх емоційних реакцій та навчанні ефективним практикам усвідомленого проживання теперішнього моменту. <p></p> <b>Програма курсу-->
+    <!--                    спрямована на </b> знайомство з концепцією усвідомленості, на навчання технік,-->
+    <!--                що дозволяють відсторонено спостерігати за своїми внутрішніми переживаннями без засудження та реакції. Освоєння різних-->
+    <!--                технік медитації (наприклад, медитація на дихання, сканування тіла) для зниження рівня стресу та покращення концентрації.-->
+    <!--                Навчання стратегіям розпізнавання, розуміння та управління власними емоціями, включаючи гнів, страх та смуток.-->
+    <!--                Інтеграція практик усвідомленості в рутинні дії та складні ситуації для підвищення ефективності та зниження рівня стресу.-->
+    <!--                Розвиток здатності краще розуміти свої емоційні та фізичні сигнали, що сприяє своєчасному реагуванню на потреби організму.-->
+    <!--                Регулярна практика усвідомленості може допомогти зменшити відчуття тривоги та покращити якість сну.</div>-->
+    <!--            <div class="sec1-block-text-name"><p></p> <b>ТРИВАЛІСТЬ:</b> 6 тижнів (1 заняття на тиждень по 2 години + щоденні короткі практики онлайн)-->
+    <!--            </div>-->
+    <!--            <div class="sec1-block-text-name"> <p></p> <b>МІСТКІСТЬ:</b> 12 учасників на групу</div>-->
+    <!--            <div class="sec1-block-text-name"> <p></p> <b>ЛОКАЦІЇ ПРОВЕДЕННЯ (КИЇВ):</b>-->
+    <!--                Київський міський центр соціальних служб, вул. Володимирська, 51; <p></p>-->
+    <!--                Простір психологічної підтримки "Soul Hub", вул. Січових Стрільців, 1-5</div>-->
+    <!--                    <div class="sec1-text-block-button2">-->
+    <!--                        <a class="more" href="reception.html">ЗАРЕЄСТРУВАТИСЬ →</a>-->
+    <!--                    </div>-->
+    <!--        </div>-->
+
+
+    <!--    </div>-->
+
+    <!--    <div class="sec1-block1-img">-->
+    <!--        <img class="sec1-block1-image" th:src="@{img-visits/sec1-block3.png}">-->
+    <!--        <div class="sec1-block-text">-->
+    <!--            <div class="sec1-block-text-name"><b>-->
+    <!--                <a class="text-name-link" href="reception.html">АДАПТАЦІЯ ДО ЦИВІЛЬНОГО ЖИТТЯ ТА ВІДНОВЛЕННЯ ПІСЛЯ СЛУЖБИ</a>-->
+    <!--            </b></div>-->
+    <!--            <div class="sec1-block-text-doctor"><p></p> <b>-->
+    <!--                <a class="text-name-link" href="doctor-pages.html">ОЛЕКСА Петро Михайлович</a>-->
+    <!--            </b></div>-->
+    <!--            <div class="sec1-block-text-description"> <p></p> Cтворено для ветеранів, які завершили-->
+    <!--                військову службу та зіштовхуються з проблемами адаптації до цивільного життя.</div>-->
+    <!--            <div class="sec1-block-text-name"> <p></p> <b>Програма курсу зосереджена на </b>-->
+    <!--                роботу з психологічними травмами, включаючи ПТСР, тривожні розлади та депресію, відновлення-->
+    <!--                емоційного стану та покращення настрою, застосування технік релаксації, медитації та інших методів для-->
+    <!--                стабілізації емоційного фону. Включає групові заняття та підтримку для відновлення втрачених соціальних-->
+    <!--                контактів та адаптації до цивільного спілкування. Допомога у визначенні нових пріоритетів, розвитку-->
+    <!--                інтересів та плануванні майбутнього. Надання актуальної інформації про доступні ресурси та допомогу у їх отриманні.-->
+    <!--                Навчання стратегіям подолання кризових ситуацій та підтримки власного психологічного благополуччя.</div>-->
+    <!--            <div class="sec1-block-text-name">-->
+    <!--                <p></p> <b>ТРИВАЛІСТЬ: </b>10 тижнів (1 заняття на тиждень по 3 години + щотижнева група підтримки)</div>-->
+    <!--            <div class="sec1-block-text-name"><p></p><b>МІСТКІСТЬ: </b>20 учасників на групу  </div>-->
+    <!--            <div class="sec1-block-text-name"><p></p><b>ЛОКАЦІЇ ПРОВЕДЕННЯ (КИЇВ):</b>-->
+    <!--                Український ветеранський фонд, вул. Бастіонна, 9; <p></p>-->
+    <!--                Центр комплексної реабілітації для осіб з інвалідністю "Джерело", вул. Олександра Кошиця, 7А</div>-->
+    <!--            <div class="sec1-text-block-button3">-->
+    <!--                <a class="more" href="reception.html">ЗАРЕЄСТРУВАТИСЬ →</a>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <!--    <div class="sec1-block1-img">-->
+    <!--        <img class="sec1-block1-image" th:src="@{img-visits/sec1-block4.png}">-->
+    <!--        <div class="sec1-block-text">-->
+    <!--            <div class="sec1-block-text-name"> <b>-->
+    <!--                <a class="text-name-link" href="reception.html">ПІДТРИМКА ТА СТІЙКІСТЬ ДЛЯ РОДИН ВІЙСЬКОВИХ</a>-->
+    <!--            </b> </div>-->
+    <!--            <div class="sec1-block-text-doctor"> <p></p> <b>-->
+    <!--                <a class="text-name-link" href="doctor-pages.html"> СЕМЧУК Сергій Іванович</a>-->
+    <!--            </b> </div>-->
+    <!--            <div class="sec1-block-text-description"> <p></p>Призначений для членів сімей військовослужбовців-->
+    <!--                (дружин, чоловіків, дітей, батьків), які відчувають емоційні труднощі, пов'язані зі службою їхніх близьких.  </div>-->
+    <!--            <div class="sec1-block-text-name"><p></p> <b>Програма курсу спрямована на</b>-->
+    <!--                надання інформації про стреси, з якими стикаються військовослужбовці, та їхній вплив на сімейні стосунки.-->
+    <!--                Навчання методам управління емоціями та підтримки власного психологічного стану.-->
+    <!--                Розвиток ефективних стратегій спілкування та взаємодопомоги між членами родини.-->
+    <!--                Надання практичних порад та підтримки у періоди розлуки та реінтеграції.-->
+    <!--                Надання відомостей про психологічну, соціальну та юридичну допомогу.-->
+    <!--                Забезпечення можливості спілкування з іншими членами сімей військових, які стикаються з подібними проблемами. </div>-->
+    <!--            <div class="sec1-block-text-name"> <p></p> <b>ТРИВАЛІСТЬ: </b> 7 тижнів (1 онлайн-семінар на тиждень по 2 години) </div>-->
+    <!--            <div class="sec1-block-text-name"><p></p> <b>МІСТКІСТЬ: </b> 25 учасників на групу (онлайн) </div>-->
+    <!--            <div class="sec1-block-text-name"><p></p> <b>ЛОКАЦІЇ ПРОВЕДЕННЯ (КИЇВ - ПЕРЕВАЖНО ОНЛАЙН, МОЖЛИВІ ОЧНІ ЗУСТРІЧІ):</b>-->
+    <!--                Онлайн-платформа (наприклад, Zoom, Google Meet); <p></p>-->
+    <!--                (Для очних зустрічей) Київський міський центр у справах сім'ї та жінок "Родинний дім", вул. Сагайдачного, 27/2</div>-->
+    <!--            <div class="sec1-text-block-button3">-->
+    <!--                <a class="more" href="reception.html">ЗАРЕЄСТРУВАТИСЬ →</a>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+    <!--    </div>-->
+
+
+</div>
+
+<div th:replace="footer :: footer"></div>
+<div class="section14-block-footer">
+    <div class="footer-under1">© Створено під керівництвом xie</div>
+    <div class="footer-under2">
+        2024 © Платформа "Requiem". Всі права захищено.
+    </div>
+</div>
+
+<div id="bo">
+    <iframe id="fr" th:src="@{/chatbot}"></iframe>
+</div>
+<script th:src="@{bot-size-script.js}"></script>
+<script th:src="@{bot-chat-size.js}"></script>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .admin-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: #ff6600;
+        margin-bottom: 30px;
+        position: relative;
+        text-align: center;
+    }
+
+    .admin-title::before,
+    .admin-title::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background: #ff6600;
+        margin: 0 15px;
+        opacity: 0.6;
+    }
+
+    .program-list {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .program-card {
+        display: flex;
+        gap: 20px;
+        background-color: #fff1e6;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .program-card img {
+        width: 180px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .program-info {
+        flex: 1;
+    }
+
+    .program-info h3 {
+        color: #ff6600;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .program-info p {
+        margin: 4px 0;
+    }
+</style>

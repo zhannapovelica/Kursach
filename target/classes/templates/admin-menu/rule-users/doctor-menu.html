@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{doctor-pages.css}"/>
+<link rel="stylesheet" th:href="@{main.css}"/>
+<link rel="stylesheet" th:href="@{chat.css}"/>
+<link rel="stylesheet" th:href="@{css/main-media-query.css}"/>
+<link rel="stylesheet" th:href="@{scss/variables.scss}"/>
+<link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Інформаційна система психологічної допомоги</title>
+</head>
+<body>
+
+
+<div class="empty-block">
+</div>
+
+
+<div class="doctor-pages-field">
+<form th:action="@{/doctor-redact}" method="post" enctype="multipart/form-data">
+<input type="hidden" th:value="${doctor.getId()}" name="id">
+    <div class="doctor-pages-sec1">
+        <img class="doctor-page-photo" th:src="@{${doctor.getId()} + '-image'}" alt="Image">
+        <label>Нове фото</label>
+        <input type="file" name="image" accept="image/*">
+        <div class="doctor-page-short-info">
+            <div class="doctor-page-nsl"><input name="fullName" type="text" th:value="${doctor.getFullName()}"></div>
+            <div class="doctor-page-text"><p></p> <b>ПОСАДА: </b><input name="position" type="text" th:value="${doctor.getPosition()}"></div>
+            <div class="doctor-page-text"><p></p> <b>СПЕЦІАЛІЗАЦІЯ: </b>
+                <input name="specialization" type="text" th:value="${doctor.getSpecialization()}">
+<!--                <p></p>- психологічна стійкість;-->
+<!--                <p></p>- управління стресом та тривогою;-->
+<!--                <p></p>- профілактика та робота з наслідками психологічної травми;-->
+<!--                <p></p>- розвиток копінг-механізмів;-->
+<!--                <p></p>- підтримка в кризових ситуаціях.-->
+            </div>
+            <div class="doctor-page-text"><p></p> <b>ВІК: </b> <input name="age" type="number" th:value="${doctor.getAge()}"></div>
+            <p></p>
+            <div class="doctor-page-text"><b>КОНТАКТИ: </b>
+                <p></p>
+                <input name="contacts" type="text" th:value="${doctor.getContacts()}">
+            </div>
+        </div>
+    </div>
+
+    <div class="doctor-pages-sec2">
+        <div class="doctor-page-more-info">
+            <div class="doctor-page-text"><b>ОСВІТА: </b>
+                <input name="education" type="text" th:value="${doctor.getEducation()}">
+            </div>
+        </div>
+        <div class="doctor-page-text"><p></p>
+            <b>ДОСВІД РОБОТИ: </b>
+            <p></p>
+            <input name="experience" type="text" th:value="${doctor.getExperience()}">
+        </div>
+        <div class="doctor-page-text"><p></p>
+            <input name="aboutCourse" type="text" th:value="${doctor.getAboutCourse()}">
+        </div>
+        <div class="doctor-page-text"><p></p>
+            <b>ПІДХІД ТА ФІЛОСОФІЯ:</b>
+            <input  name="strategy" type="text" th:value="${doctor.getStrategy()}">
+        </div>
+        <div class="doctor-page-text">
+            <p></p> <b>ДОДАТКОВА ІНФОРМАЦІЯ: </b> <input name="moreInfo" type="text" th:value="${doctor.getMoreInfo()}">
+        </div>
+        <div class="doctor-page-text">
+            <p></p> <b>МІСІЯ: </b> <input name="goal" type="text" th:value="${doctor.getGoal()}">
+        </div>
+    </div>
+    <button type="submit">
+        <a>Зберегти зміни</a>
+    </button>
+</form>
+</div>
+</body>
+</html>

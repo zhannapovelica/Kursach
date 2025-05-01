@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спільнота</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+<div class="header">Спільнота</div>
+
+<div class="card">
+    <h3>Управління постами спільноти</h3>
+    <p>На цій панелі адміністратор може переглядати, редагувати або видаляти пости.</p>
+    <div id="postList">
+    </div>
+</div>
+
+<div class="form-container">
+    <h3>Додати новий пост</h3>
+    <input type="text" id="postTitle" placeholder="Назва посту" />
+    <textarea id="postContent" rows="5" placeholder="Текст вашого посту"></textarea>
+    <button onclick="submitPost()">Опублікувати</button>
+</div>
+<script>
+    let posts = [];
+
+    function renderPosts() {
+        const postList = document.getElementById('postList');
+        postList.innerHTML = '';
+
+        if (posts.length === 0) {
+            postList.innerHTML = '<p>Поки що немає постів.</p>';
+            return;
+        }
+
+        posts.forEach((post, index) => {
+            const postCard = document.createElement('div');
+            postCard.className = 'card';
+            postCard.innerHTML = `
+                <h3>${post.title}</h3>
+                <p>${post.content}</p>
+                <div class="admin-actions">
+                    <button onclick="editPost(${index})">Редагувати</button>
+                    <button onclick="deletePost(${index})">Видалити</button>
+                </div>
+            `;
+            postList.appendChild(postCard);
+        });
+    }
+
+    function submitPost() {
+        const title = document.getElementById('postTitle').value.trim();
+        const content = document.getElementById('postContent').value.trim();
+
+        if (!title || !content) {
+            alert('Будь ласка, заповніть усі поля.');
+            return;
+        }
+
+        posts.unshift({ title, content });
+        document.getElementById('postTitle').value = '';
+        document.getElementById('postContent').value = '';
+        renderPosts();
+    }
+
+    function deletePost(index) {
+        if (confirm('Ви впевнені, що хочете видалити цей пост?')) {
+            posts.splice(index, 1);
+            renderPosts();
+        }
+    }
+
+    function editPost(index) {
+        const newTitle = prompt('Редагувати назву посту:', posts[index].title);
+        const newContent = prompt('Редагувати текст посту:', posts[index].content);
+
+        if (newTitle !== null && newContent !== null) {
+            posts[index].title = newTitle.trim();
+            posts[index].content = newContent.trim();
+            renderPosts();
+        }
+    }
+
+    renderPosts();
+</script>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 36px;
+        color: #ff6600;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .card p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .card button {
+        background-color: #ff6600;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .card button:hover {
+        background-color: #e65c00;
+    }
+
+    .form-container {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+
+    .form-container input,
+    .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .form-container button {
+        background-color: #ff6600;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .form-container button:hover {
+        background-color: #e65c00;
+    }
+
+    .admin-actions {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .admin-actions button {
+        background-color: #e65c00;
+        padding: 10px 20px;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .admin-actions button:hover {
+        background-color: #cc5200;
+    }
+</style>
+

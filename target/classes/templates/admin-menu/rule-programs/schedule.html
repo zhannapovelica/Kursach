@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розклад занять лікарів</title>
+</head>
+<body>
+<div class="admin-title">Розклад занять лікарів</div>
+<div class="schedule-container">
+    <div class="doctor-schedule">
+        <h3>КУШНІР Аліна Вікторівна</h3>
+        <table>
+            <tr><th>День</th><th>Час</th></tr>
+            <tr><td>Понеділок</td><td>09:00 - 13:00</td></tr>
+            <tr><td>Середа</td><td>12:00 - 16:00</td></tr>
+        </table>
+    </div>
+
+    <div class="doctor-schedule">
+        <h3>СЕМЧУК Віталій Олегович</h3>
+        <table>
+            <tr><th>День</th><th>Час</th></tr>
+            <tr><td>Вівторок</td><td>10:00 - 14:00</td></tr>
+            <tr><td>Четвер</td><td>14:00 - 18:00</td></tr>
+        </table>
+    </div>
+
+    <div class="doctor-schedule">
+        <h3>ОЛЕКСА Петро Михайлович</h3>
+        <table>
+            <tr><th>День</th><th>Час</th></tr>
+            <tr><td>Середа</td><td>09:00 - 12:00</td></tr>
+            <tr><td>П'ятниця</td><td>13:00 - 17:00</td></tr>
+        </table>
+    </div>
+
+    <div class="doctor-schedule">
+        <h3>СЕМЧУК Сергій Іванович</h3>
+        <table>
+            <tr><th>День</th><th>Час</th></tr>
+            <tr><td>Понеділок</td><td>14:00 - 18:00</td></tr>
+            <tr><td>П'ятниця</td><td>09:00 - 12:00</td></tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .admin-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: #ff6600;
+        margin-bottom: 30px;
+        position: relative;
+        text-align: center;
+    }
+
+    .admin-title::before,
+    .admin-title::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background: #ff6600;
+        margin: 0 15px;
+        opacity: 0.6;
+    }
+
+    .schedule-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff1e6;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .doctor-schedule {
+        margin-bottom: 30px;
+    }
+
+    .doctor-schedule h3 {
+        color: #ff6600;
+        margin-bottom: 10px;
+    }
+
+    .doctor-schedule table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .doctor-schedule th,
+    .doctor-schedule td {
+        padding: 10px;
+        border: 1px solid #ffd3b6;
+        text-align: center;
+    }
+
+    .doctor-schedule th {
+        background-color: #ff6600;
+        color: white;
+    }
+</style>

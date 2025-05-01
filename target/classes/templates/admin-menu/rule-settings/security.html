@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безпека</title>
+</head>
+<body>
+<div class="header">Налаштування безпеки</div>
+
+<div class="card">
+    <h3>Налаштування надійності пароля</h3>
+    <div class="form-container">
+        <label for="minPasswordLength">Мінімальна довжина пароля:</label>
+        <input type="number" id="minPasswordLength" placeholder="Введіть мінімальну довжину пароля" min="6" />
+
+        <label for="passwordComplexity">Вимоги до складності пароля:</label>
+        <select id="passwordComplexity">
+            <option value="low">Низький (тільки літери)</option>
+            <option value="medium">Середній (літери і цифри)</option>
+            <option value="high">Високий (літери, цифри та спеціальні символи)</option>
+        </select>
+        <button onclick="updatePasswordSettings()">Зберегти налаштування пароля</button>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Перевірка на надійність пароля</h3>
+    <div class="form-container">
+        <label for="passwordCheck">Введіть новий пароль для перевірки:</label>
+        <input type="password" id="passwordCheck" placeholder="Введіть новий пароль" />
+        <button onclick="checkPasswordStrength()">Перевірити надійність</button>
+        <div id="passwordStrengthMessage" style="margin-top: 10px;"></div>
+    </div>
+</div>
+
+<div id="message"></div>
+
+<script>
+    function updateTwoFactorAuth() {
+        const twoFactorAuth = document.getElementById('twoFactorAuth').value;
+        if (twoFactorAuth) {
+            document.getElementById('message').textContent = `Двохфакторна автентифікація ${twoFactorAuth === 'enabled' ? 'увімкнена' : 'вимкнена'}`;
+        }
+    }
+
+    function updatePasswordSettings() {
+        const minPasswordLength = document.getElementById('minPasswordLength').value;
+        const passwordComplexity = document.getElementById('passwordComplexity').value;
+
+        if (minPasswordLength && passwordComplexity) {
+            document.getElementById('message').textContent = `Налаштування пароля збережено: Мінімальна довжина пароля ${minPasswordLength}, Складність: ${passwordComplexity === 'low' ? 'Низький' : passwordComplexity === 'medium' ? 'Середній' : 'Високий'}`;
+        } else {
+            alert('Будь ласка, заповніть всі поля.');
+        }
+    }
+
+    function checkPasswordStrength() {
+        const password = document.getElementById('passwordCheck').value;
+        let strengthMessage = '';
+
+        if (password.length < 6) {
+            strengthMessage = 'Пароль занадто короткий (мінімум 6 символів)';
+        } else if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
+            strengthMessage = 'Пароль повинен містити літери і цифри';
+        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            strengthMessage = 'Пароль має містити спеціальні символи';
+        } else {
+            strengthMessage = 'Пароль надійний!';
+        }
+
+        document.getElementById('passwordStrengthMessage').textContent = strengthMessage;
+    }
+</script>
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 36px;
+        color: #ff6600;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .form-container input, .form-container select, .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .form-container button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .form-container button:hover {
+        background-color: #45a049;
+    }
+
+    .form-container label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    #message {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>

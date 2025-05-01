@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="title">Статистика користувачів та курсів</div>
+
+<div class="cards">
+    <div class="card">
+        <h3>Зареєстровані користувачі</h3>
+        <div class="value" id="usersCount">120</div>
+    </div>
+    <div class="card">
+        <h3>Пройдено курсів</h3>
+        <div class="value" id="coursesCompleted">305</div>
+    </div>
+    <div class="card">
+        <h3>Активні відвідувачі</h3>
+        <div class="value" id="activeUsers">58</div>
+    </div>
+    <div class="card">
+        <h3>Нові за тиждень</h3>
+        <div class="value" id="newThisWeek">24</div>
+    </div>
+</div>
+
+<div class="charts">
+    <canvas id="barChart" height="100"></canvas>
+    <canvas id="pieChart" height="100"></canvas>
+</div>
+
+<script>
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Військові', 'Родини', 'Адміністратори'],
+            datasets: [{
+                label: 'Кількість користувачів',
+                data: [75, 35, 10],
+                backgroundColor: ['#4caf50', '#ff9800', '#2196f3']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Користувачі за ролями'
+                }
+            }
+        }
+    });
+
+    const pieCtx = document.getElementById('pieChart').getContext('2d');
+    new Chart(pieCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Завершено', 'У процесі', 'Не розпочато'],
+            datasets: [{
+                label: 'Статус курсів',
+                data: [60, 25, 15],
+                backgroundColor: ['#4caf50', '#ffeb3b', '#f44336']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Стан проходження курсів'
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background-color: #f4f4f4;
+        padding: 40px;
+        color: #333;
+    }
+
+    .title {
+        font-size: 36px;
+        color: #ff6600;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+    .cards {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        width: 250px;
+        text-align: center;
+    }
+
+    .card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    .card .value {
+        font-size: 32px;
+        font-weight: bold;
+        color: #4caf50;
+    }
+
+    .charts {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    canvas {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 40px;
+    }
+</style>
