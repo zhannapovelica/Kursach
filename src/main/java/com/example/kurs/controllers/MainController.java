@@ -213,6 +213,7 @@ public class MainController {
             fidBack.setDislikes(fidBack.getDislikes() + 1);
             fidBackRepo.save(fidBack);
             return "redirect:/feedbacks";
+
         }
     }
 }
